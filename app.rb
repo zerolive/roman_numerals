@@ -1,3 +1,0 @@
-class NameApp
-
-end
