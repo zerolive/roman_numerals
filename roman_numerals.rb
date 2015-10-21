@@ -1,66 +1,17 @@
 class RomanCitizen
 
-	class << self
+	LETTERS = { 1000 => "M", 900 => "CM", 500 => "D", 400 => "CD", 100 => "C", 90 => "XC", 50 => "L", 40 => "XL", 10 => "X", 9 => "IX", 5 => "V", 4 => "IV", 1 => "I"}
 
-		def translate number
-			texttoreturn = ""
-			while number >= 1000
-				texttoreturn << "M"
-				number -= 1000
-			end
-			while number >= 900
-				texttoreturn << "CM"
-				number -= 900
-			end
-			while number >= 500
-				texttoreturn << "D"
-				number -= 500
-			end
-			while number >= 400
-				texttoreturn << "CD"
-				number -= 400
-			end
-			while number >= 100
-				texttoreturn << "C"
-				number -= 100
-			end
-			while number >= 90
-				texttoreturn << "XC"
-				number -= 90
-			end
-			while number >= 50
-				texttoreturn << "L"
-				number -= 50
-			end
-			while number >= 40
-				texttoreturn << "XL"
-				number -= 40
-			end
-			while number >= 10
-				texttoreturn << "X"
-				number -= 10
-			end
-			while number >= 9
-				texttoreturn << "IX"
-				number -= 9
-			end
-			while number >= 5
-				texttoreturn << "V"
-				number -= 5
-			end
-			while number >= 4
-				texttoreturn << "IV"
-				number -= 4
-			end
-			while number >= 1
-				texttoreturn << "I"
-				number -= 1
-			end
-			return texttoreturn
+	def self.translate number		
+		textreturn = ""
+		count = 0
+		while number > 0
+			quantity = number / LETTERS.keys[count]
+			textreturn << LETTERS.values[count] * quantity
+			number = number % LETTERS.keys[count]
+			count += 1
 		end
-
-		private
-
+		return textreturn
 	end
 end
 
@@ -72,4 +23,4 @@ end
  #D = 500
  #M = 1,000
 
- p RomanCitizen.translate(1238)
+ #p RomanCitizen.translate(1238)

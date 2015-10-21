@@ -33,4 +33,7 @@ describe "A roman citizen" do
 	it "translates 10 to X" do
 		expect(RomanCitizen.translate(10)).to eq("X")
 	end
+	it "translates 1238 to MCCXXXVIII" do
+		expect(RomanCitizen.translate(1238)).to eq("MCCXXXVIII")
+	end
 end
