@@ -7,22 +7,22 @@ class RomanCitizen
 
 		def translate number		
 			textreturn = ""
-			LETTERS.each { |key, value| 
-				textreturn << roman_number(number, key, value)
-				number = next_number(number, key)				
+			LETTERS.each { |value, letter| 
+				textreturn << roman_number(number, value, letter)
+				number = next_number(number, value)				
 			}
 			return textreturn
 		end
 
 		private
 
-			def roman_number number, key, value
-				quantity = number / key
-				return value * quantity
+			def roman_number number, value, letter
+				quantity = number / value
+				return letter * quantity
 			end
 
-			def next_number number, key
-				return number % key
+			def next_number number, value
+				return number % value
 			end
 
 	end
